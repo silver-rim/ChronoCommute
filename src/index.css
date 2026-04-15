@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+
+:root {
+  /* Bauhaus Palette */
+  --bauhaus-bg: #F4F3ED; /* Warm off-white */
+  --bauhaus-black: #111111;
+  --bauhaus-red: #D92525;
+  --bauhaus-blue: #1D3A8F;
+  --bauhaus-yellow: #F0B323;
+  --bauhaus-green: #238C59;
+  
+  --border-width: 4px;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bauhaus-bg);
+  color: var(--bauhaus-black);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout Utilities */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.bauhaus-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: var(--border-width) solid var(--bauhaus-black);
+  background-color: white;
+}
+
+.bauhaus-nav h1 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+/* Form Elements */
+.bauhaus-input {
+  width: 100%;
+  padding: 1rem;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: var(--border-width) solid var(--bauhaus-black);
+  background-color: white;
+  border-radius: 0; /* Strict geometry */
+  outline: none;
+  transition: all 0.2s;
+}
+
+.bauhaus-input:focus {
+  background-color: var(--bauhaus-yellow);
+  color: var(--bauhaus-black);
+}
+
+.bauhaus-input::placeholder {
+  color: #777;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.bauhaus-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  border: var(--border-width) solid var(--bauhaus-black);
+  border-radius: 0;
+  cursor: pointer;
+  background-color: var(--bauhaus-black);
+  color: white;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 6px 6px 0px var(--bauhaus-red);
+}
+
+.bauhaus-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px var(--bauhaus-red);
+}
+
+.bauhaus-btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px var(--bauhaus-red);
+}
+
+/* Layouts */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Home Page */
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: white;
+  padding: 2rem;
+  border: var(--border-width) solid var(--bauhaus-black);
+  box-shadow: 8px 8px 0px var(--bauhaus-blue);
+}
+
+/* Status Page */
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .status-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.status-card {
+  border: var(--border-width) solid var(--bauhaus-black);
+  background: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card.primary {
+  box-shadow: 8px 8px 0px var(--bauhaus-blue);
+}
+
+.status-card.secondary {
+  box-shadow: 8px 8px 0px var(--bauhaus-yellow);
+}
+
+.status-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  z-index: 2;
+}
+
+.timer-value {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--bauhaus-red);
+  line-height: 1;
+  z-index: 2;
+}
+
+.timer-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.go-nogo-banner {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: var(--border-width) solid var(--bauhaus-black);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.go-nogo-banner.go {
+  background-color: var(--bauhaus-green);
+  color: white;
+}
+
+.go-nogo-banner.nogo {
+  background-color: var(--bauhaus-red);
+  color: white;
+}
+
+.go-nogo-banner h2 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.go-nogo-banner p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Utils */
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
