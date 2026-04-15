@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import StatusPage from './pages/StatusPage';
+import Status from './pages/Status';
 import './index.css';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/status" element={<StatusPage />} />
+          <Route path="/status/:stationId" element={<Status />} />
         </Routes>
       </div>
     </Router>

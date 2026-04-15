@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const CountdownTimer = ({ initialSeconds = 245 }) => {
+const CountdownTimer = ({ initialSeconds = 245, lineInfo = 'Purple Line - Towards Whitefield' }) => {
   const [secondsRemaining, setSecondsRemaining] = useState(initialSeconds);
+
+  useEffect(() => {
+    setSecondsRemaining(initialSeconds);
+  }, [initialSeconds]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,7 +23,7 @@ const CountdownTimer = ({ initialSeconds = 245 }) => {
       <div className="timer-value">
         {mins}:{secs.toString().padStart(2, '0')}
       </div>
-      <p className="mt-2" style={{ fontWeight: 600 }}>Purple Line - Towards Whitefield</p>
+      <p className="mt-2" style={{ fontWeight: 600 }}>{lineInfo}</p>
     </div>
   );
 };

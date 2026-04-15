@@ -10,7 +10,8 @@ const StationSearch = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (source.trim() && destination.trim()) {
-      navigate('/status');
+      // For demo, we just use the source station name for the status
+      navigate(`/status/${encodeURIComponent(source)}`);
     }
   };
 
